@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"chyyen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="chyen&#39;s coding">
-<meta property="og:url" content="http://chyyen.github.io/index.html">
+  <meta name="description" content="有地下市場一個吐鈔機販賣部，早上會收購吐鈔機，晚上會販賣吐鈔機。 現在有 $N$ 種吐鈔機，第 $i$ 種會在第 $D_i$ 天以 $P_i$ 元販賣，每天會吐出 $G_i$ 元的鈔票，並且可以用 $R_i$ 元的二手價賣出，而每個人最多只能擁有一台吐鈔機。 現在你手中有 $C$ 元，並且你打算在市場交易 $D$ 天，請問在第 $D+1$ 天你最多可以賺多少錢 ?  考慮 dp 的話，可以推出一個">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tioj1921">
+<meta property="og:url" content="http://chyyen.github.io/2021/02/10/Tioj1921/index.html">
 <meta property="og:site_name" content="chyen&#39;s coding">
+<meta property="og:description" content="有地下市場一個吐鈔機販賣部，早上會收購吐鈔機，晚上會販賣吐鈔機。 現在有 $N$ 種吐鈔機，第 $i$ 種會在第 $D_i$ 天以 $P_i$ 元販賣，每天會吐出 $G_i$ 元的鈔票，並且可以用 $R_i$ 元的二手價賣出，而每個人最多只能擁有一台吐鈔機。 現在你手中有 $C$ 元，並且你打算在市場交易 $D$ 天，請問在第 $D+1$ 天你最多可以賺多少錢 ?  考慮 dp 的話，可以推出一個">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-09T17:36:00.000Z">
+<meta property="article:modified_time" content="2021-02-09T18:32:10.259Z">
 <meta property="article:author" content="chyen">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://chyyen.github.io/">
+<link rel="canonical" href="http://chyyen.github.io/2021/02/10/Tioj1921/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>chyen's coding</title>
+  <title>Tioj1921 | chyen's coding</title>
   
 
 
@@ -152,9 +156,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -170,10 +175,9 @@
       <meta itemprop="name" content="chyen's coding">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/10/Tioj1921/" class="post-title-link" itemprop="url">Tioj1921</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Tioj1921
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -197,7 +201,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>有地下市場一個吐鈔機販賣部，早上會收購吐鈔機，晚上會販賣吐鈔機。</p>
+        <p>有地下市場一個吐鈔機販賣部，早上會收購吐鈔機，晚上會販賣吐鈔機。</p>
 <p>現在有 $N$ 種吐鈔機，第 $i$ 種會在第 $D_i$ 天以 $P_i$ 元販賣，每天會吐出 $G_i$ 元的鈔票，並且可以用 $R_i$ 元的二手價賣出，而每個人最多只能擁有一台吐鈔機。</p>
 <p>現在你手中有 $C$ 元，並且你打算在市場交易 $D$ 天，請問在第 $D+1$ 天你最多可以賺多少錢 ?</p>
 <hr>
@@ -206,157 +210,30 @@
 <p>就變成了經典的斜率優化問題，而複雜度從原本的 $O(N^2)$ 變成 $O(NlogN)$。<br>而我是用李超線段樹來維護某個點在直線集合中代入的極值。</p>
 <hr>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Rushia_mywife ios::sync_with_stdio(0);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> all(x) (x).begin(),(x).end()</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Bint __int128</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">line</span>&#123;</span></span><br><span class="line">	Bint m,c;</span><br><span class="line">	<span class="function">Bint <span class="title">val</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (Bint)m*x+c;</span><br><span class="line">	&#125;</span><br><span class="line">	line()&#123;&#125;</span><br><span class="line">	line(<span class="keyword">int</span> _m,<span class="keyword">int</span> _c)&#123;</span><br><span class="line">		m = _m,c = _c;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">event</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> day = <span class="number">0</span>,m = <span class="number">0</span>,buy = <span class="number">0</span>,sell = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> event &amp;rhs)&#123;</span><br><span class="line">		<span class="keyword">return</span> day&lt;rhs.day;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">vector</span>&lt;event&gt;a;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;dp;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Li_Chao_Tree</span>&#123;</span></span><br><span class="line">	line seg[N&lt;&lt;<span class="number">2</span>];</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">ins</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> idx,line x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">			<span class="keyword">if</span>(x.val(a[l].day)&gt;seg[idx].val(a[l].day))</span><br><span class="line">				seg[idx] = x;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> mid = (l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(x.m&lt;seg[idx].m)</span><br><span class="line">			swap(x,seg[idx]);</span><br><span class="line">		<span class="comment">// x.m &gt; seg[idx].m</span></span><br><span class="line">		<span class="keyword">if</span>(seg[idx].val(a[mid].day)&lt;=x.val(a[mid].day))&#123;</span><br><span class="line">			swap(x,seg[idx]);</span><br><span class="line">			ins(l,mid,idx&lt;&lt;<span class="number">1</span>,x);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			ins(mid+<span class="number">1</span>,r,idx&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">Bint <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> p,<span class="keyword">int</span> idx)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(l==r)</span><br><span class="line">			<span class="keyword">return</span> seg[idx].val(a[l].day);</span><br><span class="line">		<span class="keyword">int</span> mid = (l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(p&lt;=mid)</span><br><span class="line">			<span class="keyword">return</span> max(seg[idx].val(a[p].day), (Bint)query(l,mid,p,idx&lt;&lt;<span class="number">1</span>));</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> max(seg[idx].val(a[p].day), (Bint)query(mid+<span class="number">1</span>,r,p,idx&lt;&lt;<span class="number">1</span>|<span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">Q</span><span class="params">(<span class="keyword">int</span> p)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> query(<span class="number">1</span>,n+<span class="number">1</span>,p,<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;Li;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> c,d;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; c &gt;&gt; d;</span><br><span class="line">	a.resize(n+<span class="number">1</span>);</span><br><span class="line">	dp.resize(n+<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i].day &gt;&gt; a[i].buy &gt;&gt; a[i].sell &gt;&gt; a[i].m;</span><br><span class="line">	a[n+<span class="number">1</span>].day = d+<span class="number">1</span>;</span><br><span class="line">	sort(all(a));</span><br><span class="line">	dp[<span class="number">0</span>] = c;</span><br><span class="line">	Li.ins(<span class="number">1</span>,n+<span class="number">1</span>,<span class="number">1</span>,line(<span class="number">0</span>,c));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		dp[i] = Li.Q(i);</span><br><span class="line">		<span class="keyword">if</span>(dp[i]-a[i].buy&gt;=<span class="number">0</span>)</span><br><span class="line">			Li.ins(<span class="number">1</span>,n+<span class="number">1</span>,<span class="number">1</span>,line(a[i].m,(Bint)<span class="number">-1</span>*(a[i].day+<span class="number">1</span>)*a[i].m+dp[i]-a[i].buy+a[i].sell));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; dp[n+<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Rushia_mywife</span><br><span class="line">    solve();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2020/12/17/Tioj1907/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chyen">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chyen's coding">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/17/Tioj1907/" class="post-title-link" itemprop="url">Tioj1907</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-17 00:22:14" itemprop="dateCreated datePublished" datetime="2020-12-17T00:22:14+08:00">2020-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-10 01:40:33" itemprop="dateModified" datetime="2021-02-10T01:40:33+08:00">2021-02-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>有$N$個俄羅斯娃娃, 每個俄羅斯娃娃的寬度為$w_i$, 高度為$h_i$。   </p>
-<p>如果有一個娃娃$x$的寬度及高度皆嚴格小於另一個娃娃$y$ ($w_x&lt;w_y$, $h_x&lt;h_y$),<br>就可以把娃娃$x$放進娃娃$y$裡面。<br>問最多可以疊出幾層娃娃。</p>
-<p>裸二維LIS。<br>做法就是先對其中一維由小到大排序, 再對另一維做LIS。</p>
-<p>有個要注意的點就是 :<br>兩個其中一維相同的娃娃不能被放在同一個遞增序列裡, 而避免的方式就是第二個維度由大到小排序。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Rushia_mywife ios::sync_with_stdio(0);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> all(x) (x).begin(),(x).end()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">doll</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> w,h;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> doll &amp;rhs)<span class="keyword">const</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(w==rhs.w)</span><br><span class="line">			<span class="keyword">return</span> h&gt;rhs.h;</span><br><span class="line">		<span class="keyword">return</span> w&lt;rhs.w;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="built_in">vector</span>&lt;doll&gt;a(n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i].w &gt;&gt; a[i].h;</span><br><span class="line">	sort(all(a));</span><br><span class="line">	<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;s;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> i:a)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!s.empty()&amp;&amp;i.h&lt;=*s.rbegin())</span><br><span class="line">			s.erase(s.lower_bound(i.h));</span><br><span class="line">		s.insert(i.h);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.size() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Rushia_mywife</span><br><span class="line">    <span class="keyword">int</span> t = <span class="number">1</span>; </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">        solve();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/17/Tioj1907/" rel="prev" title="Tioj1907">
+      <i class="fa fa-chevron-left"></i> Tioj1907
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2020/12/13/Tioj1082/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chyen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chyen's coding">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/13/Tioj1082/" class="post-title-link" itemprop="url">Tioj1082</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-13 03:10:57 / Modified: 14:06:58" itemprop="dateCreated datePublished" datetime="2020-12-13T03:10:57+08:00">2020-12-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>有$N$堆石頭，每堆石頭有 $B_i$ 個黑色石頭以及 $W_i$ 個白色石頭。<br>每次操作可以把其中一堆的一個石頭搬到其他堆。<br>求使每堆石頭都只有一種顏色的最少操作次數，如果無法達成則輸出$-1$。</p>
-<p>$N \leq 10^6$, $B_i +W_i \leq 2^{31}$</p>
-<hr>
-<p>最直覺的方法就是把每堆數量較少的顏色搬到其他堆去。<br>所以答案就是$\sum {\mit min}(B_i, W_i)$。</p>
-<p>有兩個比較特別Case要判 :</p>
-<ul>
-<li>每堆數量較少的顏色都一樣 ( 假設都是黑色比較少 ) :<br>這時候要挑其中一堆石頭 $x$ 放搬走的黑色石頭，並且把那堆的白色石頭搬走，<br>而這時候花費會變成$\sum B_i+(W_x-B_x)$。<br>可以觀察到前面的$\sum B_i$不變，所以要找的就是${\mit min}(W_x-B_x)$。 </li>
-<li>只有一堆石頭，且有兩種顏色的石頭 :<br>這時候不存在一種分法使每堆石頭只有一種顏色。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="keyword">long</span> <span class="keyword">long</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">st</span>&#123;</span></span><br><span class="line">	ll b,w;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans = <span class="number">0</span>,cntb = <span class="number">0</span>,cntw = <span class="number">0</span>,sb = <span class="number">0</span>,sw = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i].b &gt;&gt; a[i].w;</span><br><span class="line">		sb += a[i].b;</span><br><span class="line">		sw += a[i].w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[<span class="number">0</span>].b&amp;&amp;a[<span class="number">0</span>].w)</span><br><span class="line">                        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i].b&gt;a[i].w)&#123;</span><br><span class="line">			ans += a[i].w;</span><br><span class="line">			cntw++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			ans += a[i].b;</span><br><span class="line">			cntb++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cntb==n)&#123;</span><br><span class="line">		ans = <span class="number">2e9</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">			ans = min(ans,sb-a[i].b+a[i].w);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cntw==n)&#123;</span><br><span class="line">		ans = <span class="number">2e9</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">			ans = min(ans,sw-a[i].w+a[i].b);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);<span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n)</span><br><span class="line">		solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 

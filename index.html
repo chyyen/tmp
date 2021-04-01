@@ -158,6 +158,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2021/04/01/Tioj2151/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="chyen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chyen's coding">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/01/Tioj2151/" class="post-title-link" itemprop="url">Tioj2151</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-04-01 23:01:29 / Modified: 23:18:10" itemprop="dateCreated datePublished" datetime="2021-04-01T23:01:29+08:00">2021-04-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>給一張有向圖，$N(N \leq 200)$個點$M(M \leq N*(N-1))$條邊。</p>
+<p>每個點有各自的點權，定義一條路的開心程度為除了起點以外的點權總和。</p>
+<p>問從$s$出發，走$t$步後的最大開心程度 (不一定要是簡單路徑)。</p>
+<hr>
+<p>我是用倍增法去做的。</p>
+<p>定義$dp[i][j][k]$為從$j$走$2^i$步到$k$的最大開心程度，轉移式為 :<br>$$ dp[i][j][k] = max ( dp[i-1][j][h]+dp[i-1][h][k], 1 \leq h \leq N ) $$</p>
+<hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Rushia_mywife ios::sync_with_stdio(0);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> vvi vector<span class="meta-string">&lt;vector&lt;int&gt;&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">210</span>; </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1e18</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,s,t;</span><br><span class="line"><span class="keyword">int</span> c[N];</span><br><span class="line"></span><br><span class="line"><span class="function">vvi <span class="title">chmax</span><span class="params">(vvi a,vvi b)</span></span>&#123;</span><br><span class="line">	<span class="function">vvi <span class="title">res</span><span class="params">(n+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n+<span class="number">1</span>,-INF))</span></span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</span><br><span class="line">				res[j][k] = max(res[j][k],a[j][i]+b[i][k]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; s &gt;&gt; t;</span><br><span class="line">	<span class="function"><span class="built_in">vector</span>&lt;vvi&gt; <span class="title">dp</span><span class="params">(<span class="number">50</span>,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(n+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n+<span class="number">1</span>,-INF)))</span></span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; c[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,u,v;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">		dp[<span class="number">0</span>][u][v] = c[v];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">50</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> h=<span class="number">1</span>;h&lt;=n;h++)</span><br><span class="line">					dp[i][k][h] = max(dp[i][k][h],dp[i<span class="number">-1</span>][k][j]+dp[i<span class="number">-1</span>][j][h]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> x = t<span class="number">-1</span>;</span><br><span class="line">	vvi res = dp[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">50</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>((<span class="number">1L</span>L&lt;&lt;i)&lt;=x)&#123;</span><br><span class="line">			x -= (<span class="number">1L</span>L&lt;&lt;i);</span><br><span class="line">			res = chmax(res,dp[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans = -INF;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		ans = max(ans,res[s][i]);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Rushia_mywife</span><br><span class="line">    solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2021/02/15/Tioj1827/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -394,7 +460,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-10 01:40:33" itemprop="dateModified" datetime="2021-02-10T01:40:33+08:00">2021-02-10</time>
+                <time title="Modified: 2021-03-13 00:10:20" itemprop="dateModified" datetime="2021-03-13T00:10:20+08:00">2021-03-13</time>
               </span>
 
           
@@ -408,9 +474,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>有$N$個俄羅斯娃娃, 每個俄羅斯娃娃的寬度為$w_i$, 高度為$h_i$。   </p>
-<p>如果有一個娃娃$x$的寬度及高度皆嚴格小於另一個娃娃$y$ ($w_x&lt;w_y$, $h_x&lt;h_y$),<br>就可以把娃娃$x$放進娃娃$y$裡面。<br>問最多可以疊出幾層娃娃。</p>
-<p>裸二維LIS。<br>做法就是先對其中一維由小到大排序, 再對另一維做LIS。</p>
+          <p>有$N$個俄羅斯娃娃, 每個俄羅斯娃娃的寬度為$w_i$, 高度為$h_i$。<br>如果有一個娃娃$x$的寬度及高度皆嚴格小於另一個娃娃$y$ ($w_x&lt;w_y$, $h_x&lt;h_y$),<br>就可以把娃娃$x$放進娃娃$y$裡面。<br>問最多可以疊出幾層娃娃。</p>
+<hr>
+<p>二維LIS。<br>做法就是先對其中一維由小到大排序, 再對另一維做LIS。</p>
 <p>有個要注意的點就是 :<br>兩個其中一維相同的娃娃不能被放在同一個遞增序列裡, 而避免的方式就是第二個維度由大到小排序。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Rushia_mywife ios::sync_with_stdio(0);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> all(x) (x).begin(),(x).end()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">doll</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> w,h;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> doll &amp;rhs)<span class="keyword">const</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(w==rhs.w)</span><br><span class="line">			<span class="keyword">return</span> h&gt;rhs.h;</span><br><span class="line">		<span class="keyword">return</span> w&lt;rhs.w;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="built_in">vector</span>&lt;doll&gt;a(n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i].w &gt;&gt; a[i].h;</span><br><span class="line">	sort(all(a));</span><br><span class="line">	<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;s;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> i:a)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!s.empty()&amp;&amp;i.h&lt;=*s.rbegin())</span><br><span class="line">			s.erase(s.lower_bound(i.h));</span><br><span class="line">		s.insert(i.h);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.size() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Rushia_mywife</span><br><span class="line">    <span class="keyword">int</span> t = <span class="number">1</span>; </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">        solve();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
@@ -561,7 +627,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

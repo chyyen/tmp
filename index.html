@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-16 10:59:31" itemprop="dateModified" datetime="2021-11-16T10:59:31+08:00">2021-11-16</time>
+                <time title="Modified: 2021-11-16 11:19:50" itemprop="dateModified" datetime="2021-11-16T11:19:50+08:00">2021-11-16</time>
               </span>
 
           
@@ -247,7 +247,7 @@ $$ disS(i,j)+disADD(i,j)+disE(i,j)$$<br>
 <hr>
 <h1 id="pD"><a class="header-anchor" href="#pD"></a>pD</h1>
 <p>給一顆大小為 $N$ 的樹，以及 $Q$ 次詢問。 $(N,Q \leq 10^6)$</p>
-<p>每次a詢問給定一個 $x_i$ 及 $k_i$ ，問有多少個節點屬於以 $x_i$ 為根的子樹且與 $x_i$ 的距離不超過 $k_i$ 。</p>
+<p>每次詢問給定一個 $x_i$ 及 $k_i$ ，問有多少個節點屬於以 $x_i$ 為根的子樹且與 $x_i$ 的距離不超過 $k_i$ 。</p>
 <hr>
 <p>我們可以維護一個線段樹(雖然我是用BIT)，裡面維護每個深度節點的數量，並且一邊dfs一邊處理詢問。<br>
 在dfs時，每當我們走進一個節點，就把他的的深度加到線段樹上。<br>

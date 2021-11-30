@@ -323,7 +323,7 @@ $N,s,m$ 的詳細範圍有點忘了，不過都差不多在 $10^5$ 那裡。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-30 22:25:06" itemprop="dateModified" datetime="2021-11-30T22:25:06+08:00">2021-11-30</time>
+                <time title="Modified: 2021-11-30 22:33:37" itemprop="dateModified" datetime="2021-11-30T22:33:37+08:00">2021-11-30</time>
               </span>
 
           
@@ -405,7 +405,8 @@ $1 \leq p \leq 10^4$</p>
 <p>給一個數 $N(N \leq 10^{18})$ ，<br>
 問有多少種數列滿足 $a_1 \leq a_2 \geq a_3 \leq a_4…(0 \leq a_i \leq 11)$ ，輸出答案 mod $10^9+7$ 的結果。</p>
 <hr>
-<p>如果考慮dp的話，另 $dp_{ij}$ 為當 $a_i$ 為 $j$ 時，滿足條件且數列長度為 $i$ 的數量，可以列出以下dp式 :</p>
+<p>如果考慮dp的話，另 $dp_{i,j}$ 為當 $a_i$ 為 $j$ 時，滿足條件且數列長度為 $i$ 的數量，可以列出以下dp式 :<br>
+$$dp{i,j}= \begin{cases} \sum__{k=0}^{j} dp_{i-1,k}, &amp; \text {if $n$ is even} \ \sum_{k=j}<em>{11} dp</em>{i-1,k}, &amp; \text{if $n$ is odd} \end{cases}$$</p>
 
       
     </div>

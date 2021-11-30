@@ -29,7 +29,7 @@
 <meta property="og:description" content="pA 給一個長度為 $N(N \leq 8000)$ 的序列 $w$ ，求最小的 $k$ 使得存在一種切割 $w$ 的方法，滿足每份切割出來的區間長度都不超過 $k$ ，且區間和皆相同。  注意到 $N$ 的大小允許我們用 $O(N^2)$ 的做法，所以可以枚舉開頭長度作為每段的區間和，再去把每次枚舉的最長區間長度取min。 123456789101112131415161718192021222">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-26T02:55:56.000Z">
-<meta property="article:modified_time" content="2021-11-30T15:15:24.727Z">
+<meta property="article:modified_time" content="2021-11-30T15:16:35.440Z">
 <meta property="article:author" content="chyen">
 <meta name="twitter:card" content="summary">
 
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-30 23:15:24" itemprop="dateModified" datetime="2021-11-30T23:15:24+08:00">2021-11-30</time>
+                <time title="Modified: 2021-11-30 23:16:35" itemprop="dateModified" datetime="2021-11-30T23:16:35+08:00">2021-11-30</time>
               </span>
 
           
@@ -286,7 +286,7 @@ dp_{i,j} =<br>
 \sum_{k=j}^{11} dp_{i-1,k}, &amp; \text{if $i$ is odd}<br>
 \end{cases}<br>
 $$<br>
-寫成矩陣的話就是(因為11階方陣太難寫，所以這邊拿三階方陣舉例) :<br>
+寫成矩陣的話就是(因為12階方陣太難寫，所以這邊拿三階方陣舉例) :<br>
 $$<br>
 \begin{bmatrix}<br>
 1 &amp; 0 &amp; 0 \newline<br>
@@ -305,7 +305,7 @@ dp_{i,0} \newline<br>
 dp_{i,1} \newline<br>
 dp_{i,2}<br>
 \end{bmatrix}<br>
-\text{, if $i$ is even} \newline<br>
+\text{, if $i$ is even} \par<br>
 \begin{bmatrix}<br>
 1 &amp; 1 &amp; 1 \newline<br>
 1 &amp; 1 &amp; 0 \newline<br>

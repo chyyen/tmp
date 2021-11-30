@@ -21,19 +21,19 @@
     var CONFIG = {"hostname":"chyyen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="有$N$堆石頭，每堆石頭有 $B_i$ 個黑色石頭以及 $W_i$ 個白色石頭。每次操作可以把其中一堆的一個石頭搬到其他堆。求使每堆石頭都只有一種顏色的最少操作次數，如果無法達成則輸出$-1$。 $N \leq 10^6$, $B_i +W_i \leq 2^{31}$  最直覺的方法就是把每堆數量較少的顏色搬到其他堆去。所以答案就是 $\sum {\mit min}(B_i, W_i)$ 。 有">
+  <meta name="description" content="成大 上午 成大複試的報到時間是10:30開始，所以我早上還先去了學校一趟。 因為這次上機考很大機率有凌人桐學長出題，超怕他出一些很噁心的資結或圖論演算法，所以一到學校後就開始複習資結，把treap跟持久化線段樹還有Dinic都重新刻了一遍，寫過一遍後時間也差不多了，所以就離開學校去報到了。 報到後，早上剩下的時間是測機，整個過程基本上沒什麼好講的。 比較好笑的是測機後我把一個不認識的人認成羅文謙">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tioj1082">
-<meta property="og:url" content="http://chyyen.github.io/2020/12/13/Tioj1082/index.html">
+<meta property="og:title" content="各大學資工特選複試心得">
+<meta property="og:url" content="http://chyyen.github.io/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/index.html">
 <meta property="og:site_name" content="chyen&#39;s coding">
-<meta property="og:description" content="有$N$堆石頭，每堆石頭有 $B_i$ 個黑色石頭以及 $W_i$ 個白色石頭。每次操作可以把其中一堆的一個石頭搬到其他堆。求使每堆石頭都只有一種顏色的最少操作次數，如果無法達成則輸出$-1$。 $N \leq 10^6$, $B_i +W_i \leq 2^{31}$  最直覺的方法就是把每堆數量較少的顏色搬到其他堆去。所以答案就是 $\sum {\mit min}(B_i, W_i)$ 。 有">
+<meta property="og:description" content="成大 上午 成大複試的報到時間是10:30開始，所以我早上還先去了學校一趟。 因為這次上機考很大機率有凌人桐學長出題，超怕他出一些很噁心的資結或圖論演算法，所以一到學校後就開始複習資結，把treap跟持久化線段樹還有Dinic都重新刻了一遍，寫過一遍後時間也差不多了，所以就離開學校去報到了。 報到後，早上剩下的時間是測機，整個過程基本上沒什麼好講的。 比較好笑的是測機後我把一個不認識的人認成羅文謙">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-12T19:10:57.000Z">
-<meta property="article:modified_time" content="2021-11-09T02:14:24.286Z">
+<meta property="article:published_time" content="2021-11-27T19:02:46.000Z">
+<meta property="article:modified_time" content="2021-11-30T14:11:34.076Z">
 <meta property="article:author" content="chyen">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://chyyen.github.io/2020/12/13/Tioj1082/">
+<link rel="canonical" href="http://chyyen.github.io/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Tioj1082 | chyen's coding</title>
+  <title>各大學資工特選複試心得 | chyen's coding</title>
   
 
 
@@ -166,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2020/12/13/Tioj1082/">
+    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,7 +179,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Tioj1082
+          各大學資工特選複試心得
         </h1>
 
         <div class="post-meta">
@@ -189,14 +189,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-12-13 03:10:57" itemprop="dateCreated datePublished" datetime="2020-12-13T03:10:57+08:00">2020-12-13</time>
+              <time title="Created: 2021-11-28 03:02:46" itemprop="dateCreated datePublished" datetime="2021-11-28T03:02:46+08:00">2021-11-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-09 10:14:24" itemprop="dateModified" datetime="2021-11-09T10:14:24+08:00">2021-11-09</time>
+                <time title="Modified: 2021-11-30 22:11:34" itemprop="dateModified" datetime="2021-11-30T22:11:34+08:00">2021-11-30</time>
               </span>
 
           
@@ -210,16 +210,72 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>有$N$堆石頭，每堆石頭有 $B_i$ 個黑色石頭以及 $W_i$ 個白色石頭。<br>每次操作可以把其中一堆的一個石頭搬到其他堆。<br>求使每堆石頭都只有一種顏色的最少操作次數，如果無法達成則輸出$-1$。</p>
-<p>$N \leq 10^6$, $B_i +W_i \leq 2^{31}$</p>
-<hr>
-<p>最直覺的方法就是把每堆數量較少的顏色搬到其他堆去。<br>所以答案就是 $\sum {\mit min}(B_i, W_i)$ 。</p>
-<p>有兩個比較特別Case要判 :</p>
-<ul>
-<li>每堆數量較少的顏色都一樣 ( 假設都是黑色比較少 ) :<br>這時候要挑其中一堆石頭 $x$ 放搬走的黑色石頭，並且把那堆的白色石頭搬走，<br>而這時候花費會變成 $\sum B_i+(W_x-B_x)$ 。<br>可以觀察到前面的 $\sum B_i$ 不變，所以要找的就是 ${\mit min}(W_x-B_x)$ 。 </li>
-<li>只有一堆石頭，且有兩種顏色的石頭 :<br>這時候不存在一種分法使每堆石頭只有一種顏色。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="keyword">long</span> <span class="keyword">long</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">st</span>&#123;</span></span><br><span class="line">	ll b,w;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans = <span class="number">0</span>,cntb = <span class="number">0</span>,cntw = <span class="number">0</span>,sb = <span class="number">0</span>,sw = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i].b &gt;&gt; a[i].w;</span><br><span class="line">		sb += a[i].b;</span><br><span class="line">		sw += a[i].w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[<span class="number">0</span>].b&amp;&amp;a[<span class="number">0</span>].w)</span><br><span class="line">                        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i].b&gt;a[i].w)&#123;</span><br><span class="line">			ans += a[i].w;</span><br><span class="line">			cntw++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			ans += a[i].b;</span><br><span class="line">			cntb++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cntb==n)&#123;</span><br><span class="line">		ans = <span class="number">2e9</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">			ans = min(ans,sb-a[i].b+a[i].w);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cntw==n)&#123;</span><br><span class="line">		ans = <span class="number">2e9</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">			ans = min(ans,sw-a[i].w+a[i].b);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);<span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n)</span><br><span class="line">		solve();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="成大"><a class="header-anchor" href="#成大"></a>成大</h1>
+<h2 id="上午"><a class="header-anchor" href="#上午"></a>上午</h2>
+<p>成大複試的報到時間是10:30開始，所以我早上還先去了學校一趟。<br><br>
+因為這次上機考很大機率有凌人桐學長出題，超怕他出一些很噁心的資結或圖論演算法，所以一到學校後就開始複習資結，把treap跟持久化線段樹還有Dinic都重新刻了一遍，寫過一遍後時間也差不多了，所以就離開學校去報到了。</p>
+<p>報到後，早上剩下的時間是測機，整個過程基本上沒什麼好講的。<br><br>
+比較好笑的是測機後我把一個不認識的人認成羅文謙，然後坐到他旁邊的位子跟他噴了一堆垃圾話後才發現我認錯人了，有夠尷尬。</p>
+<h2 id="中午"><a class="header-anchor" href="#中午"></a>中午</h2>
+<p>中午有附午餐，還不錯吃，而且還有一杯充滿台南味的義峰冬瓜茶，超級甜。</p>
+<h2 id="下午上機考"><a class="header-anchor" href="#下午上機考"></a>下午上機考</h2>
+<h3 id="pA"><a class="header-anchor" href="#pA"></a>pA</h3>
+<p>100/100</p>
+<blockquote>
+<p>給數線上的 $N$ 個點，每個點有其權值 $h_i$ ，以及 $M$ 個帶權線段。<br><br>
+問這 $N$ 個點當中， $h_i \times$ 被覆蓋線段權值和的最大值。<br><br>
+除了要輸出最大值外，還要所有符合條件的點。<br><br>
+點的座標以及區間的左右區間皆小於等於 $10^9$ 。</p>
+</blockquote>
+<p>就是一題裸的差分，只是一開始題本上寫的測資範圍是 $10^6$ ，在傳了好幾次都拿到RE後才發現可能是測資範圍錯了。</p>
+<p>果然不久後就收到announcement說pA的測資範圍改成 $10^9$ ，我也把原本的code加上離散化後就過了。</p>
+<h3 id="pB"><a class="header-anchor" href="#pB"></a>pB</h3>
+<p>100/100</p>
+<blockquote>
+<p>有 $M$ 首曲子，每首各有 $N$ 個難度，要打過 $(i,j)$ (第 $j$ 首的第 $i$ 個難度)皆會消耗體力 $a_{ij}$ 。<br><br>
+如果打過了 $(i,j)$ ，則會解鎖接下來 $k$ 首曲子的同一難度，以及這首曲子的下一個難度，也就是 $(i+1,j), (i,j+1),(i,j+2)…(i,j+k)$ 。<br><br>
+問從 $(1,1)$ 開始，打到 $(N,M)$ 最少需要花多少體力。<br><br>
+$N*M \leq 10^6, 1 \leq k \leq M$</p>
+</blockquote>
+<p>這題我的第一直覺是dp+線段樹優化，因為怕實作花太久，所以我看完題目後就直接跳過了。</p>
+<p>在做完pC，看完pD沒什麼想法還有發現pE的實作量更噁心之後，回來認真的想了一下有沒有什麼方法可以避開線段樹，最後發現其實用單調隊列就可以了。</p>
+<p>幸好我當初沒有腦弱去刻線段樹，因為賽後聽說有人寫線段樹拿到TLE。</p>
+<h3 id="pC"><a class="header-anchor" href="#pC"></a>pC</h3>
+<p>100/100</p>
+<blockquote>
+<p>有 $N$ 個人，每個人皆有一個權重，其中有 $M$ 種關係。<br><br>
+對於每個關係輸入一組 $a,b$ ，代表 $a$ 跟 $b$ 是同團的。<br><br>
+接下來有 $Q$ 筆操作，每筆操作包括將 $a$ 和 $b$ 變成不同團的，以及詢問跟 $a$ 同團之中，誰的權重最大。<br><br>
+$N \leq 10^5$ <br><br>
+$M,Q \leq 2*10^5$</p>
+</blockquote>
+<p>維護dsu中的最大點權不難，而且對於這類只有刪邊的題目，只要把所有操作逆著做就可以了。</p>
+<h3 id="pD"><a class="header-anchor" href="#pD"></a>pD</h3>
+<p>40/100</p>
+<blockquote>
+<p>給 $N$ 個數，問將這些數組合成完全平方數的可能有多少種。<br><br>
+$N \le 10^5, a_i \le 70$</p>
+</blockquote>
+<p>一開始看到完全沒有想法，在寫完pB後又想了一下，發現可以把題目reduce成「給一堆數字，問有幾種取法可以使取到的數xor結果為0」。</p>
+<p>直覺告訴我這題應該是線性基，但是我不會線性基，所以只好想一下有沒有其他解法，<br><br>
+後來想到了一個複雜度 $O(N*2^{x})$ 的dp解，其中 $x$ 是小於等於 $a_i$ 的質數數量，所以只寫出 $N \leq 20$ 跟 $N\leq 100, a_i \leq 10$ 的子題。</p>
+<p>賽後去看學了一下線性基，發現這題好像蠻裸的，假設線性基的size為 $s$ ，則答案就是 $2^{N-s}-1$ 。</p>
+<h3 id="pE"><a class="header-anchor" href="#pE"></a>pE</h3>
+<p>29/100</p>
+<blockquote>
+<p>有一張 $N$ 個點的圖，其中有 $s$ 個不可刪除的邊，以及 $m$ 個可刪除的邊，求這張圖的次小生成樹路徑長總和。(不可刪除代表一定要被放進次小生成樹中)<br><br>
+接下來還有 $Q$ 筆詢問，每筆求在這棵次小生成樹中 $a$ 到 $b$ 的路徑長。<br><br>
+$N,s,m$ 的詳細範圍有點忘了，不過都差不多在 $10^5$ 那裡。</p>
+</blockquote>
+<p>這到底是什麼怪題目，超難做。</p>
+<p>在確定其他題目的分數不會再變後，我才開始去寫這題的子題。<br><br>
+其中有一個子題是 $s=0,Q=0$ ，也就是裸的次小生成樹，我本來以為就算寫出來了也沒辦法在比賽結束前de出bug，結果幾乎沒寫出什麼bug，丟了兩三次就過了。</p>
+<p>接下來我開始想 $Q=0$ 的情況，最後想出來的方法是在建倍增表時，把那些不可刪除的邊的邊權設成負無限大，這樣一來在詢問LCA上最大邊權時應該就不會被取到了。</p>
+<p>寫完丟上去後，過沒多久judge就壞了，然後就這樣一路壞到比賽結束，所以我也不知道那個想法到底對不對。</p>
+<h2 id="後記"><a class="header-anchor" href="#後記"></a>後記</h2>
+<p>經歷過南區賽的摧殘後，我本來已經對任何台南的比賽沒抱有多大的期待了。<br><br>
+沒想到這場比賽的品質其實還不錯，題目測資有出什麼狀況都很快就發announcement了，judge也是撐到最後5分鐘才壞掉的。</p>
+<p>最後也希望成大能夠正取&gt; &lt;，畢竟清交看起來都沒什麼機會。</p>
 
     </div>
 
@@ -234,11 +290,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/12/17/Tioj1907/" rel="next" title="Tioj1907">
-      Tioj1907 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/09/26/Toj637/" rel="prev" title="110台南一中校內複賽(toj634~toj639)">
+      <i class="fa fa-chevron-left"></i> 110台南一中校內複賽(toj634~toj639)
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -297,6 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%90%E5%A4%A7"><span class="nav-number">1.</span> <span class="nav-text">成大</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E5%8D%88"><span class="nav-number">1.1.</span> <span class="nav-text">上午</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E5%8D%88"><span class="nav-number">1.2.</span> <span class="nav-text">中午</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E5%8D%88%E4%B8%8A%E6%A9%9F%E8%80%83"><span class="nav-number">1.3.</span> <span class="nav-text">下午上機考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pA"><span class="nav-number">1.3.1.</span> <span class="nav-text">pA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pB"><span class="nav-number">1.3.2.</span> <span class="nav-text">pB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pC"><span class="nav-number">1.3.3.</span> <span class="nav-text">pC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pD"><span class="nav-number">1.3.4.</span> <span class="nav-text">pD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pE"><span class="nav-number">1.3.5.</span> <span class="nav-text">pE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">1.4.</span> <span class="nav-text">後記</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

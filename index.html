@@ -161,6 +161,136 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="chyen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chyen's coding">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">各大學資工特選複試心得</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-28 03:02:46" itemprop="dateCreated datePublished" datetime="2021-11-28T03:02:46+08:00">2021-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-30 22:11:34" itemprop="dateModified" datetime="2021-11-30T22:11:34+08:00">2021-11-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="成大"><a class="header-anchor" href="#成大"></a>成大</h1>
+<h2 id="上午"><a class="header-anchor" href="#上午"></a>上午</h2>
+<p>成大複試的報到時間是10:30開始，所以我早上還先去了學校一趟。<br><br>
+因為這次上機考很大機率有凌人桐學長出題，超怕他出一些很噁心的資結或圖論演算法，所以一到學校後就開始複習資結，把treap跟持久化線段樹還有Dinic都重新刻了一遍，寫過一遍後時間也差不多了，所以就離開學校去報到了。</p>
+<p>報到後，早上剩下的時間是測機，整個過程基本上沒什麼好講的。<br><br>
+比較好笑的是測機後我把一個不認識的人認成羅文謙，然後坐到他旁邊的位子跟他噴了一堆垃圾話後才發現我認錯人了，有夠尷尬。</p>
+<h2 id="中午"><a class="header-anchor" href="#中午"></a>中午</h2>
+<p>中午有附午餐，還不錯吃，而且還有一杯充滿台南味的義峰冬瓜茶，超級甜。</p>
+<h2 id="下午上機考"><a class="header-anchor" href="#下午上機考"></a>下午上機考</h2>
+<h3 id="pA"><a class="header-anchor" href="#pA"></a>pA</h3>
+<p>100/100</p>
+<blockquote>
+<p>給數線上的 $N$ 個點，每個點有其權值 $h_i$ ，以及 $M$ 個帶權線段。<br><br>
+問這 $N$ 個點當中， $h_i \times$ 被覆蓋線段權值和的最大值。<br><br>
+除了要輸出最大值外，還要所有符合條件的點。<br><br>
+點的座標以及區間的左右區間皆小於等於 $10^9$ 。</p>
+</blockquote>
+<p>就是一題裸的差分，只是一開始題本上寫的測資範圍是 $10^6$ ，在傳了好幾次都拿到RE後才發現可能是測資範圍錯了。</p>
+<p>果然不久後就收到announcement說pA的測資範圍改成 $10^9$ ，我也把原本的code加上離散化後就過了。</p>
+<h3 id="pB"><a class="header-anchor" href="#pB"></a>pB</h3>
+<p>100/100</p>
+<blockquote>
+<p>有 $M$ 首曲子，每首各有 $N$ 個難度，要打過 $(i,j)$ (第 $j$ 首的第 $i$ 個難度)皆會消耗體力 $a_{ij}$ 。<br><br>
+如果打過了 $(i,j)$ ，則會解鎖接下來 $k$ 首曲子的同一難度，以及這首曲子的下一個難度，也就是 $(i+1,j), (i,j+1),(i,j+2)…(i,j+k)$ 。<br><br>
+問從 $(1,1)$ 開始，打到 $(N,M)$ 最少需要花多少體力。<br><br>
+$N*M \leq 10^6, 1 \leq k \leq M$</p>
+</blockquote>
+<p>這題我的第一直覺是dp+線段樹優化，因為怕實作花太久，所以我看完題目後就直接跳過了。</p>
+<p>在做完pC，看完pD沒什麼想法還有發現pE的實作量更噁心之後，回來認真的想了一下有沒有什麼方法可以避開線段樹，最後發現其實用單調隊列就可以了。</p>
+<p>幸好我當初沒有腦弱去刻線段樹，因為賽後聽說有人寫線段樹拿到TLE。</p>
+<h3 id="pC"><a class="header-anchor" href="#pC"></a>pC</h3>
+<p>100/100</p>
+<blockquote>
+<p>有 $N$ 個人，每個人皆有一個權重，其中有 $M$ 種關係。<br><br>
+對於每個關係輸入一組 $a,b$ ，代表 $a$ 跟 $b$ 是同團的。<br><br>
+接下來有 $Q$ 筆操作，每筆操作包括將 $a$ 和 $b$ 變成不同團的，以及詢問跟 $a$ 同團之中，誰的權重最大。<br><br>
+$N \leq 10^5$ <br><br>
+$M,Q \leq 2*10^5$</p>
+</blockquote>
+<p>維護dsu中的最大點權不難，而且對於這類只有刪邊的題目，只要把所有操作逆著做就可以了。</p>
+<h3 id="pD"><a class="header-anchor" href="#pD"></a>pD</h3>
+<p>40/100</p>
+<blockquote>
+<p>給 $N$ 個數，問將這些數組合成完全平方數的可能有多少種。<br><br>
+$N \le 10^5, a_i \le 70$</p>
+</blockquote>
+<p>一開始看到完全沒有想法，在寫完pB後又想了一下，發現可以把題目reduce成「給一堆數字，問有幾種取法可以使取到的數xor結果為0」。</p>
+<p>直覺告訴我這題應該是線性基，但是我不會線性基，所以只好想一下有沒有其他解法，<br><br>
+後來想到了一個複雜度 $O(N*2^{x})$ 的dp解，其中 $x$ 是小於等於 $a_i$ 的質數數量，所以只寫出 $N \leq 20$ 跟 $N\leq 100, a_i \leq 10$ 的子題。</p>
+<p>賽後去看學了一下線性基，發現這題好像蠻裸的，假設線性基的size為 $s$ ，則答案就是 $2^{N-s}-1$ 。</p>
+<h3 id="pE"><a class="header-anchor" href="#pE"></a>pE</h3>
+<p>29/100</p>
+<blockquote>
+<p>有一張 $N$ 個點的圖，其中有 $s$ 個不可刪除的邊，以及 $m$ 個可刪除的邊，求這張圖的次小生成樹路徑長總和。(不可刪除代表一定要被放進次小生成樹中)<br><br>
+接下來還有 $Q$ 筆詢問，每筆求在這棵次小生成樹中 $a$ 到 $b$ 的路徑長。<br><br>
+$N,s,m$ 的詳細範圍有點忘了，不過都差不多在 $10^5$ 那裡。</p>
+</blockquote>
+<p>這到底是什麼怪題目，超難做。</p>
+<p>在確定其他題目的分數不會再變後，我才開始去寫這題的子題。<br><br>
+其中有一個子題是 $s=0,Q=0$ ，也就是裸的次小生成樹，我本來以為就算寫出來了也沒辦法在比賽結束前de出bug，結果幾乎沒寫出什麼bug，丟了兩三次就過了。</p>
+<p>接下來我開始想 $Q=0$ 的情況，最後想出來的方法是在建倍增表時，把那些不可刪除的邊的邊權設成負無限大，這樣一來在詢問LCA上最大邊權時應該就不會被取到了。</p>
+<p>寫完丟上去後，過沒多久judge就壞了，然後就這樣一路壞到比賽結束，所以我也不知道那個想法到底對不對。</p>
+<h2 id="後記"><a class="header-anchor" href="#後記"></a>後記</h2>
+<p>經歷過南區賽的摧殘後，我本來已經對任何台南的比賽沒抱有多大的期待了。<br><br>
+沒想到這場比賽的品質其實還不錯，題目測資有出什麼狀況都很快就發announcement了，judge也是撐到最後5分鐘才壞掉的。</p>
+<p>最後也希望成大能夠正取&gt; &lt;，畢竟清交看起來都沒什麼機會。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2021/09/26/Toj637/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -792,7 +922,7 @@ $1 \leq p \leq 10^4$</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

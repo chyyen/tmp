@@ -21,15 +21,19 @@
     var CONFIG = {"hostname":"chyyen.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="chyen&#39;s coding">
-<meta property="og:url" content="http://chyyen.github.io/archives/2021/index.html">
+  <meta name="description" content="總共有 $T$ 筆詢問( $T \leq 10^6$ )，每筆詢問會給定一個正整數 $N$ ( $N \leq 10^7$ )，求 : $$ \sum_{i&#x3D;1}^{n} \frac{n}{gcd(i,n)} $$  如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 : $$ \sum_{k \mid n} \frac{n}{k} \sum_{i&#x3D;1}^{\frac{n}{k}}[\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code chef - simple sum">
+<meta property="og:url" content="http://chyyen.github.io/2022/04/10/Code-chef-simple-sum/index.html">
 <meta property="og:site_name" content="chyen&#39;s coding">
+<meta property="og:description" content="總共有 $T$ 筆詢問( $T \leq 10^6$ )，每筆詢問會給定一個正整數 $N$ ( $N \leq 10^7$ )，求 : $$ \sum_{i&#x3D;1}^{n} \frac{n}{gcd(i,n)} $$  如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 : $$ \sum_{k \mid n} \frac{n}{k} \sum_{i&#x3D;1}^{\frac{n}{k}}[\">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-10T13:07:22.000Z">
+<meta property="article:modified_time" content="2022-04-10T14:03:57.194Z">
 <meta property="article:author" content="chyen">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://chyyen.github.io/archives/2021/">
+<link rel="canonical" href="http://chyyen.github.io/2022/04/10/Code-chef-simple-sum/">
 
 
 <script id="page-configurations">
@@ -37,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | chyen's coding</title>
+  <title>Code chef - simple sum | chyen's coding</title>
   
 
 
@@ -155,150 +159,93 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 9 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2022/04/10/Code-chef-simple-sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="chyen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chyen's coding">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Code chef - simple sum
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-10 21:07:22 / Modified: 22:03:57" itemprop="dateCreated datePublished" datetime="2022-04-10T21:07:22+08:00">2022-04-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-28T03:02:46+08:00"
-              content="2021-11-28">
-          11-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/" itemprop="url">
-            <span itemprop="name">各大學資工特選複試心得</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-26T10:55:56+08:00"
-              content="2021-09-26">
-          09-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/26/110%E5%B9%B4%E5%8F%B0%E5%8D%97%E4%B8%80%E4%B8%AD%E6%A0%A1%E5%85%A7%E8%A4%87%E8%B3%BD/" itemprop="url">
-            <span itemprop="name">110台南一中校內複賽(toj634~toj639)</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-01T23:01:29+08:00"
-              content="2021-04-01">
-          04-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/01/Tioj2151/" itemprop="url">
-            <span itemprop="name">Tioj2151</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-15T01:16:30+08:00"
-              content="2021-02-15">
-          02-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/15/Tioj1827/" itemprop="url">
-            <span itemprop="name">Tioj1827</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-15T00:44:56+08:00"
-              content="2021-02-15">
-          02-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/15/Tioj1099/" itemprop="url">
-            <span itemprop="name">Tioj1099</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-10T01:36:00+08:00"
-              content="2021-02-10">
-          02-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/10/Tioj1921/" itemprop="url">
-            <span itemprop="name">Tioj1921</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>總共有 $T$ 筆詢問( $T \leq 10^6$ )，每筆詢問會給定一個正整數 $N$ ( $N \leq 10^7$ )，求 :<br>
+$$ \sum_{i=1}^{n} \frac{n}{gcd(i,n)} $$</p>
+<hr>
+<p>如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 :<br>
+$$ \sum_{k \mid n} \frac{n}{k} <em>\sum_{i=1}^{\frac{n}{k}}[\space gcd(i,\frac{n}{k})=1\space] $$<br>
+$$ =\sum_{k \mid n} k</em>\sum_{i=1}^{k}[\space gcd(i,k)=1\space]$$<br>
+可以發現 $\sum_{i=1}^{k}[\space gcd(i,k)=1\space]$ 其實就等於 $\varphi(k)$，於是我們可以預處理 $\varphi(n)$，並且對於所有正整數 $i$，把 $i$ 的倍數都加上 $i*\varphi(i)$，<br><br>
+這樣一來就可以了得到整體複雜度 $O(T+NlogN)$ 的解法了。</p>
+<p>但是這樣的複雜度對於 $N \leq 10^7$ 來說還是有點太大了。<br><br>
+這時候注意到 $f(n)=\sum_{k \mid n} k*\varphi(k)$ 是個積性函數，也就是說若 $n=p_1<sup>{k_1}*p2</sup>{k_2}…*p_r^{k_r}$，則 $f(n)=f(p_1<sup>{k_1})*f(p2</sup>{k_2})…*f(p_r^{k_r})$，所以我們可以試著找出 $f(p^k)$ 的通式，然後就可以得到一個 $O(N+TlogN)$ 的解了。</p>
+<p>首先，可以將 $f(p^k)$ 改寫成 $\sum_{i=0}<sup>{k}p</sup>k*\varphi(p^k)$，而 $\varphi(p^k) = p<sup>k-p</sup>{k-1}$，所以得到 :<br>
+\begin{align}<br>
+f(p^k) &amp; = \sum_{i=0}<sup>{k}p</sup>k*(p<sup>k-p</sup>{k-1}) \<br>
+&amp; = 1+\sum_{i=1}<sup>{k}p</sup>k*(p<sup>k-p</sup>{k-1}) \<br>
+&amp; = 1+\sum_{i=1}<sup>{k}p</sup>{2k}-p^{2k-1} \<br>
+&amp; =<br>
+\end{align}</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/" rel="prev" title="各大學資工特選複試心得">
+      <i class="fa fa-chevron-left"></i> 各大學資工特選複試心得
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -451,6 +398,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

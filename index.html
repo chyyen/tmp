@@ -161,6 +161,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2022/04/10/Code-chef-simple-sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="chyen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chyen's coding">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/10/Code-chef-simple-sum/" class="post-title-link" itemprop="url">Code chef - simple sum</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-10 21:07:22 / Modified: 22:03:57" itemprop="dateCreated datePublished" datetime="2022-04-10T21:07:22+08:00">2022-04-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>總共有 $T$ 筆詢問( $T \leq 10^6$ )，每筆詢問會給定一個正整數 $N$ ( $N \leq 10^7$ )，求 :<br>
+$$ \sum_{i=1}^{n} \frac{n}{gcd(i,n)} $$</p>
+<hr>
+<p>如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 :<br>
+$$ \sum_{k \mid n} \frac{n}{k} <em>\sum_{i=1}^{\frac{n}{k}}[\space gcd(i,\frac{n}{k})=1\space] $$<br>
+$$ =\sum_{k \mid n} k</em>\sum_{i=1}^{k}[\space gcd(i,k)=1\space]$$<br>
+可以發現 $\sum_{i=1}^{k}[\space gcd(i,k)=1\space]$ 其實就等於 $\varphi(k)$，於是我們可以預處理 $\varphi(n)$，並且對於所有正整數 $i$，把 $i$ 的倍數都加上 $i*\varphi(i)$，<br><br>
+這樣一來就可以了得到整體複雜度 $O(T+NlogN)$ 的解法了。</p>
+<p>但是這樣的複雜度對於 $N \leq 10^7$ 來說還是有點太大了。<br><br>
+這時候注意到 $f(n)=\sum_{k \mid n} k*\varphi(k)$ 是個積性函數，也就是說若 $n=p_1<sup>{k_1}*p2</sup>{k_2}…*p_r^{k_r}$，則 $f(n)=f(p_1<sup>{k_1})*f(p2</sup>{k_2})…*f(p_r^{k_r})$，所以我們可以試著找出 $f(p^k)$ 的通式，然後就可以得到一個 $O(N+TlogN)$ 的解了。</p>
+<p>首先，可以將 $f(p^k)$ 改寫成 $\sum_{i=0}<sup>{k}p</sup>k*\varphi(p^k)$，而 $\varphi(p^k) = p<sup>k-p</sup>{k-1}$，所以得到 :<br>
+\begin{align}<br>
+f(p^k) &amp; = \sum_{i=0}<sup>{k}p</sup>k*(p<sup>k-p</sup>{k-1}) \<br>
+&amp; = 1+\sum_{i=1}<sup>{k}p</sup>k*(p<sup>k-p</sup>{k-1}) \<br>
+&amp; = 1+\sum_{i=1}<sup>{k}p</sup>{2k}-p^{2k-1} \<br>
+&amp; =<br>
+\end{align}</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://chyyen.github.io/2021/11/28/%E5%90%84%E5%A4%A7%E5%AD%B8%E8%B3%87%E5%B7%A5%E7%89%B9%E9%81%B8%E8%A4%87%E8%A9%A6%E5%BF%83%E5%BE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -192,7 +267,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-30 22:26:30" itemprop="dateModified" datetime="2021-11-30T22:26:30+08:00">2021-11-30</time>
+                <time title="Modified: 2021-12-08 13:10:01" itemprop="dateModified" datetime="2021-12-08T13:10:01+08:00">2021-12-08</time>
               </span>
 
           
@@ -206,7 +281,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="成大"><a class="header-anchor" href="#成大"></a>成大</h1>
+          <h1 id="成大甲組"><a class="header-anchor" href="#成大甲組"></a>成大甲組</h1>
 <h2 id="上午"><a class="header-anchor" href="#上午"></a>上午</h2>
 <p>成大複試的報到時間是10:30開始，所以我早上還先去了學校一趟。<br>
 因為這次上機考很大機率有凌人桐學長出題，超怕他出一些很噁心的資結或圖論演算法，所以一到學校後就開始複習資結，把treap跟持久化線段樹還有Dinic都重新刻了一遍，寫過一遍後時間也差不多了，所以就離開學校去報到了。</p>
@@ -273,6 +348,17 @@ $N,s,m$ 的詳細範圍有點忘了，不過都差不多在 $10^5$ 那裡。</p>
 沒想到這場比賽的品質其實還不錯，題目測資有出什麼狀況都很快就發announcement了，judge也是撐到最後5分鐘才壞掉的。</p>
 <p>我對這次比賽出來的結果也還算滿意，至少該拿到的分數都有拿到。<br>
 最後也希望成大能夠正取&gt; &lt;，畢竟清交看起來都沒什麼機會。</p>
+<hr>
+<h1 id="清大"><a class="header-anchor" href="#清大"></a>清大</h1>
+<p>這是我第一間面試的學校，所以我異常緊張，</p>
+<h2 id="第一考場"><a class="header-anchor" href="#第一考場"></a>第一考場</h2>
+<p>第一考場有兩位教授，在進去後教授就會叫你開始用簡報來做自我介紹。</p>
+<p>一開始在自我介紹時，我因為太緊張所以語速變得超快，但在講一陣子後，我發現教授其實不會一直盯著你或者簡報，大部分時間是一邊聽你說的內容一邊看電腦。也因為教授沒有一直看著我，讓我的緊張感減輕了不少。</br></p>
+<p>在講完自我介紹後，教授開始問我一些關於個人經歷的問題。</br><br>
+看起來教授對我們學校的資訊社蠻感興趣的，所以問了我很多關於資訊社的問題，像是「你們資訊社通常有幾個人 ?」、「學弟們在知道可能會被退社後會有什麼怨言嗎 ?」、「那你們社團通常有幾個人在打競賽」之類的。</p>
+<p>最後，在問我對於想要朝軟體工程發展這個想法有什麼具體的規劃後，就結束了第一考場的面試。</p>
+<p>在整個面試的過程中，教授們的語氣都不會很嚴肅，</p>
+<h2 id="第二考場"><a class="header-anchor" href="#第二考場"></a>第二考場</h2>
 
       
     </div>
@@ -1002,7 +1088,7 @@ $$<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1030,7 +1116,7 @@ $$<br>
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

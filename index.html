@@ -182,7 +182,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-04-10 21:07:22 / Modified: 22:13:47" itemprop="dateCreated datePublished" datetime="2022-04-10T21:07:22+08:00">2022-04-10</time>
+              <time title="Created: 2022-04-10 21:07:22 / Modified: 22:28:29" itemprop="dateCreated datePublished" datetime="2022-04-10T21:07:22+08:00">2022-04-10</time>
             </span>
 
           
@@ -201,11 +201,10 @@ $$ \sum_{i=1}^{n} \frac{n}{gcd(i,n)} $$</p>
 <hr>
 <p>如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 :<br>
 $$ \sum_{k \mid n} \frac{n}{k} <em>\sum_{i=1}^{\frac{n}{k}}[\space gcd(i,\frac{n}{k})=1\space] $$<br>
-$$ =\sum_{k \mid n} k</em>\sum_{i=1}^{k}[\space gcd(i,k)=1\space]$$<br>
-可以發現 $\sum_{i=1}^{k}[\space gcd(i,k)=1\space]$ 其實就等於 $\varphi(k)$，於是我們可以預處理 $\varphi(n)$，並且對於所有正整數 $i$，把 $i$ 的倍數都加上 $i*\varphi(i)$，<br><br>
+可以發現 $\sum_{i=1}^{k}[\space gcd(i,k)=1\space]$ 其實就等於 $\varphi(k)$，於是我們可以預處理 $\varphi(n)$，並且對於所有正整數 $i$，把 $i$ 的倍數都加上 $i</em>\varphi(i)$，<br><br>
 這樣一來就可以了得到整體複雜度 $O(T+NlogN)$ 的解法了。</p>
 <p>但是這樣的複雜度對於 $N \leq 10^7$ 來說還是有點太大了。<br><br>
-這時候注意到 $f(n)=\sum_{k \mid n} k*\varphi(k)$ 是個積性函數，也就是說若 $n=p_1<sup>{k_1}*p2</sup>{k_2}…*p_r^{k_r}$，則 $f(n)=f(p_1<sup>{k_1})*f(p2</sup>{k_2})…*f(p_r^{k_r})$，所以我們可以試著找出 $f(p^k)$ 的通式，然後就可以得到一個 $O(N+TlogN)$ 的解了。</p>
+這時候注意到 $f(n)=\sum_{k \mid n} k*\varphi(k)$ 是個積性函數，也就是說若 $n=p_1<sup>{k_1}*p_2</sup>{k_2}…*p_r^{k_r}$，則 $f(n)=f(p_1<sup>{k_1})*f(p_2</sup>{k_2})…*f(p_r^{k_r})$，所以我們可以試著找出 $f(p^k)$ 的通式，然後就可以得到一個 $O(N+TlogN)$ 的解了。</p>
 <p>首先，可以將 $f(p^k)$ 改寫成 $\sum_{i=0}<sup>{k}p</sup>k*\varphi(p^k)$，而 $\varphi(p^k) = p<sup>k-p</sup>{k-1}$，所以得到 :<br>
 \begin{aligned}<br>
 f(p^k) &amp; = \sum_{i=0}<sup>{k}p</sup>k*(p<sup>k-p</sup>{k-1}) \<br>
